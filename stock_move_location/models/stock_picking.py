@@ -49,3 +49,8 @@ class StockPicking(models.Model):
                 ("quantity", ">", 0.0),
             ]
         )
+
+    def button_validate(self):
+        res = super(StockPicking, self).button_validate()
+        self.env['stock.quant']._unlink_zero_quants()
+        return res

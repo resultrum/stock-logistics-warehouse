@@ -109,7 +109,7 @@ class StockMoveLocationWizardLine(models.TransientModel):
             "result_package_id": self.package_id.id,
             "owner_id": self.owner_id.id,
             "location_id": self.origin_location_id.id,
-            "location_dest_id": location_dest_id,
+            "location_dest_id": location_dest_id or picking.location_dest_id.id,
             "product_uom_qty": qty_todo,
             "qty_done": qty_done,
             "product_uom_id": self.product_uom_id.id,
